@@ -1,0 +1,383 @@
+
+        :root {
+            --bg-light: #f8f9fa;            /* Putih keabu-abuan terang */
+            --bg-card: #ffffff;             /* Putih bersih untuk kartu agar kontras */
+            --bg-badge: #dee2e6;            /* Abu-abu terang untuk badge */
+            --text-dark: #121212;           /* Teks utama hitam pekat */
+            --text-muted: #495057;          /* Teks abu-abu gelap sedang */
+            --accent-maroon: #580014;       /* Merah Maroon Gelap */
+            --accent-maroon-hover: #3b000d; /* Maroon lebih gelap saat hover */
+            --accent-maroon-light: rgba(88, 0, 20, 0.08); /* Maroon transparan untuk aksen */
+            --border-color: #d1d5db;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar Kustom */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e9ecef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6c757d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-maroon);
+        }
+
+        /* Navbar Kustom */
+        .navbar {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(18, 18, 18, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-dark) !important;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-maroon) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-maroon);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 60%;
+        }
+
+        /* Badge Logo Sekolah Kustom di Navbar */
+        .school-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid rgba(88, 0, 20, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Styling Bagian / Section dengan Gradasi Putih, Abu-abu, dan Hitam */
+        section {
+            padding: 95px 0;
+            position: relative;
+        }
+
+        /* Gradasi Khusus Section Alt */
+        .gradient-section-1 {
+            background: linear-gradient(180deg, #ffffff 0%, #e9ecef 60%, #dbe0e6 100%);
+        }
+
+        .gradient-section-2 {
+            background: linear-gradient(180deg, #e9ecef 0%, #ffffff 50%, #f1f3f5 100%);
+        }
+
+        .section-title {
+            position: relative;
+            font-weight: 800;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            color: var(--text-dark);
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-maroon), #121212);
+            border-radius: 2px;
+        }
+
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Tombol Kustom Maroon Gelap */
+        .btn-maroon {
+            background-color: var(--accent-maroon);
+            color: #ffffff;
+            border: 1px solid var(--accent-maroon);
+            padding: 10px 24px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(88, 0, 20, 0.25);
+        }
+
+        .btn-maroon:hover {
+            background-color: var(--accent-maroon-hover);
+            color: #ffffff;
+            border-color: var(--accent-maroon-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn-outline-maroon {
+            background-color: transparent;
+            color: var(--accent-maroon);
+            border: 2px solid var(--accent-maroon);
+            padding: 8px 22px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-maroon:hover {
+            background-color: var(--accent-maroon);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(88, 0, 20, 0.25);
+        }
+
+        /* Kartu Kustom dengan Bayangan Hitam Lembut */
+        .custom-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .custom-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-maroon), #121212);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(88, 0, 20, 0.4);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .custom-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Project Card Image Container Fixed Height */
+        .card-img-wrapper {
+            height: 200px;
+            overflow: hidden;
+            background-color: #ced4da;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero Section dengan Gradasi Putih, Abu-abu & Hitam */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 50%),
+                radial-gradient(circle at 90% 90%, rgba(18, 18, 18, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(88, 0, 20, 0.04) 0%, transparent 60%),
+                linear-gradient(135deg, #ffffff 0%, #e9ecef 50%, #ced4da 100%);
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(rgba(18, 18, 18, 0.12) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            right: -12px;
+            bottom: -12px;
+            border: 2px dashed var(--accent-maroon);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+            animation: rotateDashed 25s linear infinite;
+        }
+
+        @keyframes rotateDashed {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Aksen Badge Nomor pada Kartu Aktivitas */
+        .activity-card {
+            position: relative;
+        }
+
+        .activity-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--accent-maroon) 0%, #121212 100%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        /* Form Kontak Custom Focus & Aksen */
+        .form-control, .form-control:focus, .form-select, .form-select:focus {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-maroon);
+            box-shadow: 0 0 0 0.25rem rgba(88, 0, 20, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: #888888;
+        }
+
+        /* Modal Custom Header */
+        .modal-header {
+            background: linear-gradient(135deg, var(--accent-maroon) 0%, #212529 100%);
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .modal-header .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        /* Tombol Aksi Edit & Hapus di Kartu Project */
+        .action-btn-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 5;
+            display: flex;
+            gap: 6px;
+        }
+
+        .btn-card-action {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            border: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .btn-card-action:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer dengan Gradasi Hitam Pekat */
+        footer {
+            background: linear-gradient(180deg, #212529 0%, #0d0e10 100%);
+            color: #dee2e6;
+            padding: 45px 0 35px 0;
+            border-top: 4px solid var(--accent-maroon);
+        }
+
+        .social-icon-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon-btn:hover {
+            background-color: var(--accent-maroon);
+            border-color: var(--accent-maroon);
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(88, 0, 20, 0.4);
+        }
